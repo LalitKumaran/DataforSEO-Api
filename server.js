@@ -74,9 +74,7 @@ const taskResponse = [];
 let responseURL;
 app.get("/:url", async (req, res) => {
   responseURL = req.params.url;
-  console.log(responseURL);
   const domain = responseURL.replace(/^(https?:\/\/)?(www\.)?/, "");
-  console.log(domain);
   let task_id = "";
   let taskFound = false;
   task_id = await createTask(domain,responseURL);
