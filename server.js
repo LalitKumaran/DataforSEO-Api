@@ -72,8 +72,8 @@ const isTaskReady = async (task_id) => {
 
 const taskResponse = [];
 let responseURL;
-app.get("/", async (req, res) => {
-  responseURL = req.body.url;
+app.get("/:url", async (req, res) => {
+  responseURL = req.params.url;
   console.log(responseURL);
   const domain = responseURL.replace(/^(https?:\/\/)?(www\.)?/, "");
   console.log(domain);
