@@ -106,7 +106,7 @@ app.get("/:url", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  if (taskResponse.items) {
+  if (taskResponse.items!==null) {
     res.json({
       url: taskResponse[0].items[0].url,
       onpage_score: taskResponse[0].items[0].onpage_score,
@@ -168,7 +168,7 @@ app.get("/:url", async (req, res) => {
       seo_friendly_url: taskResponse[0].items[0].seo_friendly_url,
     });
   } else {
-    res.json("");
+    res.json(null);
   }
 });
 app.listen(port, (req, res) => {
