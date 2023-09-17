@@ -146,7 +146,7 @@ app.get("/:url", async (req, res) => {
   });
 }
 else{
-  res.json({});
+  res.json("");
 }
 });
 app.listen(port, (req, res) => {
