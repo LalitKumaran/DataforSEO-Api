@@ -99,6 +99,7 @@ app.get("/:url", async (req, res) => {
     })
     .then((page_res) => {
       console.log("Tasks", page_res.data.tasks);
+      console.log("Result",page_res.data.tasks[0].result)
       for (const taskList of page_res.data.tasks[0].result) {
         taskResponse = taskList;
       }
