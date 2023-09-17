@@ -106,7 +106,7 @@ app.get("/:url", async (req, res) => {
     .catch((err) => {
       console.log(err);
     });
-  if (taskResponse.items!==null) {
+  if (taskResponse[0].items!==null) {
     res.json({
       url: taskResponse[0].items[0].url,
       onpage_score: taskResponse[0].items[0].onpage_score,
