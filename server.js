@@ -35,7 +35,7 @@ const createTask = async (domain, responseURL) => {
     !responseURL.startsWith("https://") &&
     !responseURL.startsWith("www.")
   ) {
-    responseURL = new URL(`https://www.${responseURL}`);
+    responseURL = new URL(`https://${responseURL}`);
   }
   await axios
     .post(
