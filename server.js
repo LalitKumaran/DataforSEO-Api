@@ -42,6 +42,7 @@ const createTask = async (domain,responseURL) => {
       { headers }
     )
     .then((res) => {
+      console.log("Created:",res.data.tasks[0]);
       task_id = res.data.tasks[0].id;
     })
     .catch((err) => {
@@ -58,6 +59,7 @@ const isTaskReady = async (task_id) => {
       if (res.data.tasks[0].result) {
         for (const task of res.data.tasks[0].result) {
           if (task_id === task.id) {
+            console.log("Ready:",task);
             taskFound = true;
             break;
           }
@@ -90,11 +92,12 @@ app.get("/:url", async (req, res) => {
       for (const taskList of page_res.data.tasks[0].result) {
         taskResponse.push(taskList);
       }
-      console.log(taskResponse[0]);
+      console.log("Result:",taskResponse[0]);
     })
     .catch((err) => {
       console.log(err);
     });
+    if(taskResponse.items){
   res.json({
     url: taskResponse[0].items[0].url,
     onpage_score: taskResponse[0].items[0].onpage_score,
@@ -141,6 +144,10 @@ app.get("/:url", async (req, res) => {
     seo_friendly_url: taskResponse[0].items[0].seo_friendly_url,
     
   });
+}
+else{
+  res.json({});
+}
 });
 app.listen(port, (req, res) => {
   console.log(`Server Working on PORT ${port}`);
