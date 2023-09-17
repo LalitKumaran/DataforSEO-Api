@@ -90,6 +90,7 @@ app.get("/:url", async (req, res) => {
       for (const taskList of page_res.data.tasks[0].result) {
         taskResponse.push(taskList);
       }
+      console.log(taskResponse[0]);
     })
     .catch((err) => {
       console.log(err);
