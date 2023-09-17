@@ -98,6 +98,7 @@ app.get("/:url", async (req, res) => {
       headers,
     })
     .then((page_res) => {
+      console.log(page_res.data.tasks);
       for (const taskList of page_res.data.tasks[0].result) {
         taskResponse.push(taskList);
       }
