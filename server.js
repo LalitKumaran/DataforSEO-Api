@@ -71,8 +71,8 @@ const isTaskReady = async (task_id) => {
 };
 
 const taskResponse = [];
-app.post("/search", async (req, res) => {
-  responseURL = req.body.url;
+app.post("/:url", async (req, res) => {
+  responseURL = req.params.url;
   const domain = responseURL.replace(/^(https?:\/\/)?(www\.)?/, "");
   let task_id = "";
   let taskFound = false;
